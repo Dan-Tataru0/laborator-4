@@ -1,0 +1,216 @@
+<!DOCTYPE >
+<html>
+<head>
+
+	<title>Second Page</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" /> 
+	<link rel="stylesheet" type="text/css" href="resume.css" media="all" />
+
+</head>
+<body onload="ajaxGetRequest()">
+
+<div id="doc2" class="yui-t7">
+	<div id="inner">
+	
+		<div id="hd">
+			<div class="yui-gc">
+				<div class="yui-u first">
+					<span id="name"></span><span id="surname"></span>
+
+					<h2 id="profession"></h2>
+				</div>
+
+				<div class="yui-u">
+					
+				</div>
+			</div>
+		</div>
+
+		<div id="bd">
+			<div id="yui-main">
+				<div class="yui-b">
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Informatii generale</h2>
+						</div>
+						<div class="yui-u">
+							<p class="enlarge">
+							<span>Email : </span><span id="email"></span>
+							<span id="ch">Address : </span><span id="address"></span><br>
+							<span>Phone : </span><span id="phone"></span><br>
+							</p>
+						</div>
+					</div>
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Retele de socializare</h2>
+						</div>
+						<div class="yui-u">
+
+								<div class="talent">
+									
+									<a href="#"><span id="link1"></span></a>
+									<a href="#"><span id="link2"></span></a>
+									<a href="#"><span id="link3"></span></a>
+									<a href="#"><span id="link4"></span></a>
+									<a href="#"><span id="link5"></span></a>
+								</div>
+						</div>
+					</div>
+
+					<div class="yui-gf">
+						<div class="yui-u first">
+							<h2>Educatie</h2>
+						</div>
+						<div class="yui-u">
+							<ul class="talent">
+								<li id="education_title1"></li>
+								<li id="data_primire1"></li>
+								<li id="education1" class="last"></li>
+
+							</ul>
+
+							<ul class="talent">
+								<li id="education_title2"></li>
+								<li id="data_primire2"></li>
+								<li id="education2" class="last"></li>
+							</ul>
+
+							<ul class="talent">
+								<li id="education_title3"></li>
+								<li id="data_primire3"></li>
+								<li  id="education3" class="last"></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="yui-gf">
+	
+						<div class="yui-u first">
+							<h2>Experienta de lucru</h2>
+						</div>
+
+						<div class="yui-u">
+
+							<div class="job">
+								<h2 id="job_name1"></h2>
+								<h3 id="City_name1"></h3>
+								<br>
+								<span id="hide1">Data de inceput</span>
+								<p id="job_start_date1"></p>
+								Data de sfarsit
+								<p id="job_end_date1">In prezent</p>
+								
+							</div>
+
+							<div class="job">
+								<h2 id="job_name2"></h2>
+								<h3 id="City_name2"></h3>
+								<br>
+								Data de inceput
+								<p id="job_start_date2"></p>
+								Data de sfarsit
+								<p id="job_end_date2">In prezent</p>
+								
+							</div>
+
+							<div class="job">
+								<h2 id="job_name3"></h2>
+								<h3 id="City_name3"></h3>
+								<br>
+								Data de inceput
+								<p id="job_start_date3"></p>
+								Data de sfarsit
+								<p id="job_end_date3">In prezent</p>
+								
+							</div>
+
+
+							<div class="job last">
+								<h2 id="job_name4"></h2>
+								<h3 id="City_name4"></h3>
+								<br>
+								Data de inceput
+								<p id="job_start_date4"></p>
+								Data de sfarsit
+								<p id="job_end_date4">In prezent</p>
+								
+							</div>
+
+						</div>
+					</div>
+	</div>
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+
+  function ajaxGetRequest(){
+    $.ajax({
+      url: 'http://localhost:3000/form-data',
+      method: 'GET',
+      dataType: 'json',
+      success: function(response) {
+        console.log('true');
+        $("#name").html(response.name); 
+        $("#surname").html(response.surname); 
+        $("#email").html(response.email); 
+        $("#phone").html(response.phone); 
+        $("#address").html(response.address); 
+        $("#profession").html(response.profession); 
+		$("#link1").html(response.link1); 
+		$("#link2").html(response.link2);
+		$("#link3").html(response.link3);  
+		$("#link4").html(response.link4); 
+		$("#link5").html(response.link5); 
+		$("#education_title1").html(response.Education_Title1); 
+		$("#education_title2").html(response.Education_Title2);
+		$("#education_title3").html(response.Education_Title3);
+		$("#education_title4").html(response.Education_Title4);
+		$("#education_title5").html(response.Education_Title5);
+		$("#data_primire1").html(response.data_info1);
+		$("#data_primire2").html(response.data_info2);
+		$("#data_primire3").html(response.data_info3);
+		$("#education1").html(response.Selected_Education1);
+		$("#education2").html(response.Selected_Education2);
+		$("#education3").html(response.Selected_Education3);
+		$("#job_name1").html(response.job_name1);
+		$("#job_name2").html(response.job_name2);
+		$("#job_name3").html(response.job_name3);
+		$("#job_name4").html(response.job_name4);
+		$("#City_name1").html(response.City_name1);
+		$("#City_name2").html(response.City_name2);
+		$("#City_name3").html(response.City_name3);
+		$("#City_name4").html(response.City_name4);
+		$("#job_start_date1").html(response.job_start_date1);
+		$("#job_start_date2").html(response.job_start_date2);
+		$("#job_start_date3").html(response.job_start_date3);
+		$("#job_start_date4").html(response.job_start_date4);
+		$("#job_end_date1").html(response.job_start_date1);
+		$("#job_end_date2").html(response.job_start_date2);
+		$("#job_end_date3").html(response.job_start_date3);
+		$("#job_end_date4").html(response.job_start_date4);
+      },
+    });
+  }
+
+  $('#collect-button').on('click', () => {
+    ajaxGetRequest()
+  });
+
+</script>
+
+
+</body>
+</html>
+
